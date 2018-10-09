@@ -1,0 +1,32 @@
+<body> 
+</body>
+<script>
+
+
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext("2d");
+
+canvas.width = 1224;
+canvas.height = 768;
+document.body.appendChild(canvas);
+//canvas.style.zIndex = 8;
+//canvas.style.position = "absolute";
+//canvas.style.border = "1px solid";
+function rysuj() {
+
+ctx.fillStyle = "blue";
+ctx.fillRect(0,0,1224,768);
+}
+
+
+function update() {
+	//alert("abc");
+	rysuj();
+	//setTimeout(update(), 10000);
+	}
+	
+//update();
+rysuj();
+window.setInterval(update, 1000);
+</script>
+	
