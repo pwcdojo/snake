@@ -1,3 +1,4 @@
+
 <html>
 <body> 
 </body>
@@ -9,6 +10,7 @@ var ctx = canvas.getContext("2d");
 
 var snakeX = 200;
 var snakeY = 100;
+var kierunek = "prawo";
 
 canvas.width = 600;
 canvas.height = 600;
@@ -17,7 +19,19 @@ document.body.appendChild(canvas);
 
 
 function aktualizuj() {
-	snakeX = snakeX + 10;
+	if (kierunek == "gora")
+	snakeY = snakeY - 30;
+	if (kierunek == "dol")
+	snakeY = snakeY + 30
+	if (kierunek == "lewo")
+	snakeX = snakeX - 30;
+	if (kierunek == "prawo")
+	snakeX = snakeX + 30;
+	
+	if (snakeX >= 600 ) {
+		alert("przegrałeś");
+	}
+	
 	ctx.fillStyle = "white";
 	ctx.fillRect(0,0,600,600);
 	ctx.fillStyle = "black";
@@ -27,7 +41,16 @@ function aktualizuj() {
 document.onkeydown = function sprawdzKlawisze(klawisz) {
 	var kodKlawisza = klawisz.keyCode;
 	if (kodKlawisza == 38) {
-		alert("w gore");
+		kierunek = "gora";
+	}
+	if (kodKlawisza == 37) {
+		kierunek = "lewo";
+	}
+	if (kodKlawisza == 39) {
+		kierunek = "prawo";
+	}
+	if (kodKlawisza == 40) {
+		kierunek = "dol";
 	}
 	//37 lewo
 	//38 gora
