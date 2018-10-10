@@ -1,6 +1,35 @@
 <html>
-<body>
-<h1>test</h1>
-<h2>test2</h2>
+<body> 
 </body>
+<script>
+
+
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext("2d");
+
+var snakeX = 200;
+var snakeY = 100;
+
+canvas.width = 600;
+canvas.height = 600;
+canvas.style.border = "1px solid";
+document.body.appendChild(canvas);
+
+
+function aktualizuj() {
+	snakeX = snakeX + 10;
+	ctx.fillStyle = "white";
+	ctx.fillRect(0,0,600,600);
+	ctx.fillStyle = "black";
+	ctx.fillRect(snakeX,snakeY,100,200);
+	}
+	
+document.onkeydown = function sprawdzKlawisze(klawisz) {
+	var kodKlawisza = event.keyCode;
+	alert(kodKlawisza);
+}
+	
+window.setInterval(aktualizuj, 500);
+</script>
 </html>
+	
