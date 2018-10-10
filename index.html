@@ -26,7 +26,13 @@ function aktualizuj() {
 	
 document.onkeydown = function sprawdzKlawisze(klawisz) {
 	var kodKlawisza = event.keyCode;
-	alert(kodKlawisza);
+	if (kodKlawisza == 38) {
+		alert("w gore");
+	}
+	//37 lewo
+	//38 gora
+	//39 prawo
+	//40 dol
 }
 	
 window.setInterval(aktualizuj, 500);
