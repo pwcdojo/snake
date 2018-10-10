@@ -1,0 +1,67 @@
+
+<html>
+<body> 
+</body>
+<script>
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext("2d");
+
+var snakeX = 3;
+var snakeY = 5;
+
+var jedzenie = {x:0, y:0};
+var rozmiar = 1;
+
+var ogon = new Array();
+ogon[0] = {x:10, y:10};
+ogon[1] = {x:20, y:20};
+
+for (i = 0; i<ogon.length; i++) {
+	alert("ogon: " + ogon[i].x + " " + ogon[i].y);
+} 
+
+const szerokoscEkranu = 600;
+const wysokoscEkranu = 600;
+const rozmiarPola = 50;
+
+canvas.width = szerokoscEkranu;
+canvas.height = wysokoscEkranu;
+canvas.style.border = "1px solid";
+document.body.appendChild(canvas);
+
+
+function aktualizuj() {
+
+	ctx.fillStyle = "white";
+	ctx.fillRect(0,0,600,600);
+	
+	jedzenie.x = Math.round(Math.random() * szerokoscEkranu / rozmiarPola);
+	jedzenie.y = Math.round(Math.random() * wysokoscEkranu / rozmiarPola); 
+	ctx.fillStyle = "green";
+	ctx.fillRect(jedzenie.x*rozmiarPola,jedzenie.y*rozmiarPola,rozmiarPola,rozmiarPola);
+	ctx.font="20px Georgia";
+	ctx.fillText("jedzenie: "+jedzenie.x*rozmiarPola + "/" + jedzenie.y*rozmiarPola, 300,20);
+	snakeX = snakeX + 1;
+	
+	ctx.fillStyle = "black";
+	ctx.fillRect(snakeX*rozmiarPola,snakeY*rozmiarPola,100,200);
+	ctx.font="20px Georgia";
+	ctx.fillText("rozmiar: "+rozmiar,10,20);
+	}
+	
+document.onkeydown = function sprawdzKlawisze(klawisz) {
+	var kodKlawisza = event.keyCode;
+	if (kodKlawisza == 38) {
+		alert("w gore");
+	}
+	//37 lewo
+	//38 gora
+	//39 prawo
+	//40 dol
+}
+	
+window.setInterval(aktualizuj, 2500);
+
+</script>
+</html>
+	
